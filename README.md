@@ -3,7 +3,7 @@
 
 This assignment is about using ```scikit-learn``` to train simple (binary) classification models on text data. For this assignment, we'll continue to use the Fake News Dataset that we've been working on in class.
 
-For this exercise, you should write *two different scripts*. Session 4 and session 5 One script should train a logistic regression classifier on the data; the second script should train a neural network on the same dataset. Both scripts should do the following:
+For this exercise, you should write *two different scripts*. session 4 and session 5 One script should train a logistic regression classifier on the data; the second script should train a neural network on the same dataset. Both scripts should do the following:
 
 - Be executed from the command line
 - Save the classification report to the folder called ```out```
