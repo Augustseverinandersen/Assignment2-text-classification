@@ -47,44 +47,44 @@ X_train, X_test, y_train, y_test = train_test_split(X,          # texts for the 
 
 # Vectorizing and Feature Extraction 
 print("Vectorizing and feature extraction")
-vectorizer = CountVectorizer(ngram_range = (1,2),     # unigrams and bigrams (1 word and 2 word units) // include single tokens New York = 2 tokens and 1 token
+vectorizer = CountVectorizer(ngram_range = (1,2),     # unigrams and bigrams (1 word and 2 word units)
                              lowercase =  True,       # why use lowercase?
                              max_df = 0.95,           # remove very common words
                              min_df = 0.05,           # remove very rare words
                              max_features = 100)      # keep only top 100 features
 
-# first we fit to the training data...
+# fit_transforming training data 
 print("Fitting training data")
 X_train_feats = vectorizer.fit_transform(X_train) # fit_transform = taking all input text and fitting to above parameters. 
 
-#... then do it for our test data
-print("Fitting test data")
-X_test_feats = vectorizer.transform(X_test) # # transform without fit here to see if it works in teh real world. 
+#transforming test data 
+print("transforming test data")
+X_test_feats = vectorizer.transform(X_test) # transform without fit here to see if it works in the real world. 
 
 # get feature names
-feature_names = vectorizer.get_feature_names_out()
+feature_names = vectorizer.get_feature_names_out() # Storing all the feature names, which can be unigrams and bigrams 
 
 # Classifying 
 print("Classifying")
-classifier = LogisticRegression(random_state=42).fit(X_train_feats, y_train)
-y_pred = classifier.predict(X_test_feats)
+classifier = LogisticRegression(random_state=42).fit(X_train_feats, y_train) # Using LogisticReg to match label with text
+y_pred = classifier.predict(X_test_feats) # and storing in y_pred
 
 # Checking the performance of the model with f1
 print("Making performance model")
-classifier_metrics = metrics.classification_report(y_test, y_pred)
+classifier_metrics = metrics.classification_report(y_test, y_pred) # Checking to see how the true labels compare with our predictions
 
 # Saving report
 folder_path = os.path.join(".", "out")
 file_name = "logestic_reg_classifier_metrics.txt"
 file_path = os.path.join(folder_path, file_name)
 
-with open(file_path, "w") as f:
+with open(file_path, "w") as f: # "Writing" the classifier metrics, thereby saving it.
     f.write(classifier_metrics)
 print("Reports saved")
 
 # Saving models
 from joblib import dump, load
-dump(classifier, "models/logestic_reg_LR_classifier.joblib")
+dump(classifier, "models/logestic_reg_LR_classifier.joblib") # Saving the models in folder models as a joblib file.
 dump(vectorizer, "models/logestic_reg_tfidf_vectorizer.joblib")
 print("Models saved")
 

@@ -1,31 +1,53 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10362462&assignment_repo_type=AssignmentRepo)
 # Assignment 2 - Text classification benchmarks
 
-This assignment is about using ```scikit-learn``` to train simple (binary) classification models on text data. For this assignment, we'll continue to use the Fake News Dataset that we've been working on in class.
+Github link: ```Github link```
 
-For this exercise, you should write *two different scripts*. session 4 and session 5 One script should train a logistic regression classifier on the data; the second script should train a neural network on the same dataset. Both scripts should do the following:
+## Requirements 
+For this exercise, you should write *two different scripts*. One script should train a logistic regression classifier on the data; the second script should train a neural network on the same dataset. Both scripts should do the following:
 
 - Be executed from the command line
 - Save the classification report to the folder called ```out```
 - Save the trained models and vectorizers to the folder called ```models```
 
-## Objective
+## How to run this code 
 
-This assignment is designed to test that you can:
+- Clone the repository
+- Open terminal in directory 
+- write ```bash setup.sh```
 
-1. Train simple benchmark machine learning classifiers on structured text data;
-2. Produce understandable outputs and trained models which can be reused;
-3. Save those results in a clear way which can be shared or used for future analysis
+## What does this directory contain 
 
-## Some notes
+This directory contains:
+- Two python scripts 
+    - *logestic_reg_classifier.py*: The script for training a logestic regression classifier.
+    - *neural_network.py*: The script for training a neural netwok.
+- One shell script 
+    - The shell script first upgrades pip
+    - Than installs requirements.txt
+    - Then runs the two scripts, with the filepath specified.
+- One requirements text file
+    - Contains all librarys to be installed.
+- Folder __models__ for saved models 
+- Folder __out__ for saved classification reports
+- Folder __data__ which contains a csv file 
+    - Contains four columns 
+    1. index
+    2. title 
+    3. text 
+    4. label
+- Folder __utils__ which contains Ross's work
 
-- Saving the classification report to a text file can be a little tricky. You will need to Google this part!
-- You might want to challenge yourself to create a third script which vectorizes the data separately, and saves the new feature extracted dataset. That way, you only have to vectorize the data once in total, instead of once per script. Performance boost!
+## What does this code do 
 
-## Additional comments
+The code in this directory trains four models. Two are trained with a logestic regression classifier, and two are trained with a neural network. The data that is being tested is a csv file containing real and fake news. For a deeper understanding of the code line for line, look at the comments in the scripts.
 
-Your code should include functions that you have written wherever possible. Try to break your code down into smaller self-contained parts, rather than having it as one long set of instructions.
-
-For this assignment, you are welcome to submit your code either as a Jupyter Notebook, or as ```.py``` script. If you do not know how to write ```.py``` scripts, don't worry - we're working towards that!
-
-Lastly, you are welcome to edit this README file to contain whatever informatio you like. Remember - documentation is important!
+## Which librarys are being installed 
+- Pandas 
+- Sci-kit learn 
+- Numpy 
+- Joblib 
+- Argparse 
+- Seaborn 
+- Matplotlib 
+```add what the packages do```
