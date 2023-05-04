@@ -46,8 +46,8 @@ To run this code foloow these steps:
 - Get the zip file, from [here](https://www.kaggle.com/datasets/jillanisofttech/fake-or-real-news), and place it in the data folder. 
 - Run ```bash setup.sh``` in the command line. This will install the requirements, and create a virtual environment. 
 - Run ```source ./assignment_2/bin/activate ``` in the command line to activate the virtual environment. 
-- Run ```python3 scr/logistic_reg_classifier.py --zip_path data/zip_name.zip``` in the command line to run the logistic_reg_classifier script.
-- Run ```python3 scr/neural_network.py --zip_path data/zip_name.zip``` in the command line to run the neural_network script.
+- Run ```python3 src/logistic_reg_classifier.py --zip_path data/zip_name.zip``` in the command line to run the logistic_reg_classifier script.
+- Run ```python3 src/neural_network.py --zip_path data/zip_name.zip``` in the command line to run the neural_network script.
 
 __OBS! Replace *zip_name.zip* with your zip file__ 
 - The models will be saved in the folder *models* and the classification reports will be saved in the folder *out*
