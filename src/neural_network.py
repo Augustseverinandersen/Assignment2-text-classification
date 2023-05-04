@@ -9,7 +9,7 @@ import zipfile
 
 # data munging tools
 import pandas as pd
-import classifier_utils as clf
+
 
 # Importing from Sci-kit learn
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
