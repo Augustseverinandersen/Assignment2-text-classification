@@ -5,7 +5,7 @@ Github link: ```Github link```
 
 ## Contribution
 - This assignment was made in contribution with fellow students from class, and with code from the in-class notebooks. All in-code comments are made by me.
-- This assignment uses data from [Kaggle](https://www.kaggle.com/datasets/jillanisofttech/fake-or-real-news), which consits of four columns with either a fake or real news article. The four columns are *Number, Title, Text,* and *Label*.
+- This assignment uses data from [Kaggle](https://www.kaggle.com/datasets/jillanisofttech/fake-or-real-news), which consits of four columns with either a fake or real news article. The four columns are *Number, Title, Text,* and *Label*. 
 
 ## Packages 
 - This assignment uses the following packages:
