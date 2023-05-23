@@ -14,6 +14,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split, ShuffleSplit
 from sklearn import metrics
+# Saving the model and vectoriser
 from joblib import dump, load
 
 
@@ -83,7 +84,7 @@ def transform(text_train, text_test, vectorizer):
     X_train_feats = vectorizer.fit_transform(text_train) # fit_transform = taking all input text and fitting to above parameters. 
     #transforming test data 
     print("transforming test data")
-    X_test_feats = vectorizer.transform(text_test) # transform without fit here to see if it works in the real world. 
+    X_test_feats = vectorizer.transform(text_test) # transform without fit on test data to see if it works in the real world. 
 
     return X_train_feats, X_test_feats
 
@@ -111,8 +112,8 @@ def performance(label_test, label_prediction):
 
 # Saving report
 def report_save_function(classifier_metrics):
-    folder_path = os.path.join(".", "out") # Defining save path
-    file_name = "logestic_reg_classifier_metrics.txt" # Defining file name
+    folder_path = os.path.join("out") # Defining save path
+    file_name = "logistic_reg_classifier_metrics.txt" # Defining file name
     file_path = os.path.join(folder_path, file_name) # Combining
 
     with open(file_path, "w") as f: # "Writing" the classifier metrics, thereby saving it.
@@ -121,13 +122,12 @@ def report_save_function(classifier_metrics):
 
 # Saving models
 def model_save_function(classifier, vectorizer): # Saving the models in folder models as a joblib file.
-    dump(classifier, "models/logestic_reg_LR_classifier.joblib") # Classifier 
-    dump(vectorizer, "models/logestic_reg_tfidf_vectorizer.joblib") # Feature extraction
+    dump(classifier, "models/logistic_reg_LR_classifier.joblib") # Classifier 
+    dump(vectorizer, "models/logistic_reg_tfidf_vectorizer.joblib") # Feature extraction
     print("Models saved")
 
 
 def main_function():
-    print("Logistic Regression Classifier Script:")
     args = input_parse() # Command line arguments
     folder_path = unzip(args) # unzip zip file
     data = loading_data(folder_path) # Reading the data as dataframe

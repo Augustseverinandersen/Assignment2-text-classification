@@ -3,13 +3,10 @@
 # system tools
 import os
 import sys
-sys.path.append("utils")
-import argparse
-import zipfile
+sys.path.append(".")
 
 # data munging tools
 import pandas as pd
-
 
 # Importing from Sci-kit learn
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
@@ -18,34 +15,14 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split, ShuffleSplit
 from sklearn import metrics
 
-
+# Saving the model and vectoriser
 from joblib import dump, load
-
-# Defining a function for the user to input a filepath
-def input_parse():
-    # initialize the parser
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--zip_path", type=str, help = "Path to the zip file")
-    args = parser.parse_args()
-
-    return args
-
-def unzip(args):
-    folder_path = os.path.join("data", "fake_or_real_news.csv") # Defining the folder_path to the data.
-    if not os.path.exists(folder_path): # If the folder path does not exist, unzip the folder, if it exists do nothing 
-        print("Unzipping file")
-        path_to_zip = args.zip_path # Defining the path to the zip file
-        zip_destination = os.path.join("data") # defining the output destination
-
-        with zipfile.ZipFile(path_to_zip,"r") as zip_ref: # using the package from zipfile, to un zip the zip file
-            zip_ref.extractall(zip_destination) # Unzipping
-    print("The files are unzipped")
-    return folder_path
 
 
 # Reading the data 
-def loading_data(folder_path): 
+def loading_data(): 
     print("Loading data")
+    folder_path = os.path.join("data", "fake_or_real_news.csv") # Specifying folder path
     data = pd.read_csv(folder_path, index_col=0) # loading the data as a pandas dataframe 
     return data
 
@@ -102,7 +79,7 @@ def classifier_architecture():
     classifier = MLPClassifier(activation = "logistic", # logistic = giving a value between 0-1 to the data
                             hidden_layer_sizes = (20,), # one hidden layer with 20 neurons
                             max_iter=1000, # setting a limit of 1000 iterations
-                            random_state = 42) # making it reproducible
+                            random_state = 42) # making it reproducable
     return classifier
 
 
@@ -125,7 +102,7 @@ def classifier_report(label_test, y_pred):
     return classifier_metrics
 
 def metrics_save_function(classifier_metrics):
-    folder_path = os.path.join(".", "out")
+    folder_path = os.path.join("out")
     file_name = "neural_networks_classifier_metrics.txt"
     file_path = os.path.join(folder_path, file_name) # Defining where to save the classifer report.
 
@@ -141,10 +118,7 @@ def model_save_function(classifier, vectorizer):
 
 
 def main_function():
-    print("Neural Network Script:")
-    args = input_parse() # COmmand line arguments
-    folder_path = unzip(args) # Unzipping function
-    data = loading_data(folder_path) # Reading data as pandas dataframe
+    data = loading_data() # Reading data as pandas dataframe
     X, y = assigning_data(data) # Assigning data
     X_train, X_test, y_train, y_test = split(X, y) # Splitting data
     vectorizer = vectorizer_function() # Parameters for vectorizing
