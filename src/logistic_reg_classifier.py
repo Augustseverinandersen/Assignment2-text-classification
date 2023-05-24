@@ -89,7 +89,7 @@ def transform(text_train, text_test, vectorizer):
     return X_train_feats, X_test_feats
 
 
-# get feature names
+# get feature names # Delelte removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 def feature(vectorizer):
     feature_names = vectorizer.get_feature_names_out() # Storing all the feature names, which can be unigrams and bigrams 
     return feature_names
