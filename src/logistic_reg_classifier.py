@@ -10,7 +10,7 @@ import zipfile
 import pandas as pd
 
 # Importing from Sci-Kit Learn
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.feature_extraction.text import CountVectorizer # TfidfVectorizer removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split, ShuffleSplit
 from sklearn import metrics
