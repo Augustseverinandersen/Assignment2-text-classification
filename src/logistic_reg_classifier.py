@@ -123,7 +123,7 @@ def report_save_function(classifier_metrics):
 # Saving models
 def model_save_function(classifier, vectorizer): # Saving the models in folder models as a joblib file.
     dump(classifier, "models/logistic_reg_LR_classifier.joblib") # Classifier 
-    dump(vectorizer, "models/logistic_reg_tfidf_vectorizer.joblib") # Feature extraction
+    dump(vectorizer, "models/logistic_reg_vectorizer.joblib") # Feature extraction
     print("Models saved")
 
 
