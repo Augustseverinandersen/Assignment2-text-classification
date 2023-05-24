@@ -12,7 +12,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer #, TfidfVectorizer Removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
-from sklearn.model_selection import train_test_split, ShuffleSplit
+from sklearn.model_selection import train_test_split # , ShuffleSplit REomveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 from sklearn import metrics
 
 # Saving the model and vectoriser
