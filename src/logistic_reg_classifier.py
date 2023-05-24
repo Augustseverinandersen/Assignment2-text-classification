@@ -12,7 +12,7 @@ import pandas as pd
 # Importing from Sci-Kit Learn
 from sklearn.feature_extraction.text import CountVectorizer # TfidfVectorizer removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split, ShuffleSplit
+from sklearn.model_selection import train_test_split #, ShuffleSplit removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 from sklearn import metrics
 # Saving the model and vectoriser
 from joblib import dump, load
