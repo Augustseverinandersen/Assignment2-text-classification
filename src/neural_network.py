@@ -10,7 +10,7 @@ import pandas as pd
 
 # Importing from Sci-kit learn
 from sklearn.feature_extraction.text import CountVectorizer #, TfidfVectorizer Removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-from sklearn.linear_model import LogisticRegression
+# from sklearn.linear_model import LogisticRegression Removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split # , ShuffleSplit REomveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
 from sklearn import metrics
@@ -114,7 +114,7 @@ def metrics_save_function(classifier_metrics):
 # Saving models
 def model_save_function(classifier, vectorizer):
     dump(classifier, "models/neural_network_LR_classifier.joblib") # Saving the models in folder models as a joblib file.
-    dump(vectorizer, "models/neural_network_tfidf_vectorizer.joblib")
+    dump(vectorizer, "models/neural_network_vectorizer.joblib")
 
 
 def main_function():
