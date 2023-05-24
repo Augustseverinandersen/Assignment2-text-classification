@@ -10,9 +10,9 @@ import zipfile
 import pandas as pd
 
 # Importing from Sci-Kit Learn
-from sklearn.feature_extraction.text import CountVectorizer # TfidfVectorizer removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split #, ShuffleSplit removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+from sklearn.model_selection import train_test_split
 from sklearn import metrics
 # Saving the model and vectoriser
 from joblib import dump, load
@@ -25,6 +25,7 @@ def input_parse():
     # initialize the parser
     parser = argparse.ArgumentParser()
     parser.add_argument("--zip_path", type=str, help = "Path to the zip file")
+    parser.add_argument("--features", type=int, default= 100, help = "Set the max_featues for the CountVectorizer")
     args = parser.parse_args()
 
     return args
@@ -68,13 +69,13 @@ def split(text, label):
 
 
 # Vectorizing and Feature Extraction 
-def vectorizer_function():
+def vectorizer_function(args):
     print("Vectorizing and feature extraction")
     vectorizer = CountVectorizer(ngram_range = (1,2),    # unigrams and bigrams (1 word and 2 word units)
                                 lowercase =  True,       # Setting everything to lowercase
                                 max_df = 0.95,           # remove very common words
                                 min_df = 0.05,           # remove very rare words
-                                max_features = 100)      # keep only top 100 features
+                                max_features = args.features)      # keep only top 100 features
     return vectorizer
 
 
@@ -88,11 +89,6 @@ def transform(text_train, text_test, vectorizer):
 
     return X_train_feats, X_test_feats
 
-
-# get feature names # Delelte removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-def feature(vectorizer):
-    feature_names = vectorizer.get_feature_names_out() # Storing all the feature names, which can be unigrams and bigrams 
-    return feature_names
 
 # Classifying 
 def classifier_function(text_train_feats, label_train, text_test_feats):
@@ -133,9 +129,8 @@ def main_function():
     data = loading_data(folder_path) # Reading the data as dataframe
     X, y = assigning_data(data) # Assigning data
     X_train, X_test, y_train, y_test = split(X, y) # Splitting data 
-    vectorizer = vectorizer_function() # Parameters for vectorizing 
+    vectorizer = vectorizer_function(args) # Parameters for vectorizing 
     X_train_feats, X_test_feats = transform(X_train, X_test, vectorizer) # Transforming the data 
-    feature_names = feature(vectorizer) # Features 
     classifier, y_pred = classifier_function(X_train_feats, y_train, X_test_feats) # Classifying 
     classifier_metrics = performance(y_test, y_pred) # Classification report
     report_save_function(classifier_metrics) # Saving report

@@ -9,10 +9,9 @@ sys.path.append(".")
 import pandas as pd
 
 # Importing from Sci-kit learn
-from sklearn.feature_extraction.text import CountVectorizer #, TfidfVectorizer Removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-# from sklearn.linear_model import LogisticRegression Removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.neural_network import MLPClassifier
-from sklearn.model_selection import train_test_split # , ShuffleSplit REomveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+from sklearn.model_selection import train_test_split
 from sklearn import metrics
 
 # Saving the model and vectoriser
@@ -67,12 +66,6 @@ def transform(text_train, text_test, vectorizer):
     return X_train_feats, X_test_feats 
 
 
-# get feature names # Removeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-def feature(vectorizer):
-    feature_names = vectorizer.get_feature_names_out() # Storing all the feature names, which can be unigrams and bigrams 
-    return feature_names
-
-
 # Classifying and predicting 
 def classifier_architecture():
     print("Classifying and predicting")
@@ -123,7 +116,6 @@ def main_function():
     X_train, X_test, y_train, y_test = split(X, y) # Splitting data
     vectorizer = vectorizer_function() # Parameters for vectorizing
     X_train_feats, X_test_feats = transform(X_train, X_test, vectorizer) # Transforming the data 
-    feature_names = feature(vectorizer) # Getting features
     classifier = classifier_architecture() # The model architecture
     model = train_model(classifier, X_train_feats, y_train) # Training the model
     y_pred = prediction(model, X_test_feats) # Getting predictions
