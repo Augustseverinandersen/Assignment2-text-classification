@@ -7,7 +7,7 @@ For this exercise, you should write two different scripts. One script should tra
 - Save the classification report to the folder called out.
 - Save the trained models and vectorizers to the folder called models.
 ## 2.2 Machine Specifications and My Usage
-All the computation done for this project was performed on the UCloud interactive HPC system, which is managed by the eScience Center at the University of Southern Denmark. The scripts were created with Coder Python 1.73.1 and Python version 3.9.2. 
+All the computation done for this project was performed on the UCloud interactive HPC system, which is managed by the eScience Center at the University of Southern Denmark. The scripts were created with Coder Python 1.73.1 and Python version 3.9.2. I ran the script on 16 CPUs, and it took six minutes to complete. 
 ### 2.2.1 Perquisites
 To run the scripts, make sure to have Bash and Python3 installed on your device. The script has only been tested on Ucloud.
 ## 2.3 Contribution
